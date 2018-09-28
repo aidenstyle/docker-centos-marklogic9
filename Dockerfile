@@ -10,14 +10,14 @@ RUN yum update -y && \
 
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/MarkLogic/mlcmd/bin
 
-COPY ["installer/MarkLogic-9.0-6.2.x86_64.rpm", "/tmp/MarkLogic.rpm"]
-COPY ["installer/MarkLogicConverters-9.0-6.2.x86_64.rpm", "/tmp/MarkLogicConverters.rpm"]
+COPY ["installer/MarkLogic9.rpm", "/tmp/MarkLogic9.rpm"]
+COPY ["installer/MarkLogicConverters9.rpm", "/tmp/MarkLogicConverters9.rpm"]
 COPY ["usr/sbin/startup.sh", "/usr/sbin/"]
 
-RUN yum install /tmp/MarkLogic.rpm -y && \
-	yum install /tmp/MarkLogicConverters.rpm -y && \
-    rm /tmp/MarkLogic.rpm && \
-    rm /tmp/MarkLogicConverters.rpm && \
+RUN yum install /tmp/MarkLogic9.rpm -y && \
+	yum install /tmp/MarkLogicConverters9.rpm -y && \
+    rm /tmp/MarkLogic9.rpm && \
+    rm /tmp/MarkLogicConverters9.rpm && \
 	chmod +x /usr/sbin/startup.sh
 
 EXPOSE 7997 7998 7999 8000 8001 8002
